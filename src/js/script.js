@@ -3,8 +3,8 @@ const versao = "1.0";
 
 const imagens = [
     "src/assets/img1.png",
-    "src/assets/img1.png",
-    "src/assets/img1.png"
+    "src/assets/img2.png",
+    "src/assets/img3.png"
 ];
 
 let indiceImagem = 0;
@@ -24,7 +24,7 @@ setInterval(trocarImagem, 3000);
 const botaoHero = document.querySelector(".hero-text button");
 
 botaoHero.addEventListener("click", () => {
-    const msg = `Você está conhecendo o FLOW no site ${nomeSite} 🚀`;
+    const msg = `Voce esta conhecendo o FLOW no site ${nomeSite}!`;
     alert(msg);
 });
 
@@ -57,13 +57,13 @@ formContato.addEventListener("submit", function(e) {
     }
 
     if (!email.includes("@") || !email.includes(".")) {
-        alert("Email inválido! Verifique o formato.");
+        alert("Email invalido! Verifique o formato.");
         return;
     }
 
     const nomeFormatado = nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
 
-    alert(`Obrigado, ${nomeFormatado}! Sua mensagem foi enviada com sucesso 🚀`);
+    alert(`Obrigado, ${nomeFormatado}! Sua mensagem foi enviada com sucesso.`);
     formContato.reset();
 });
 
@@ -87,7 +87,7 @@ function criarModalLogin() {
 
     modal.innerHTML = `
         <h2 style="color:#fff; margin-bottom:20px; font-size:22px;">${titulo}</h2>
-        <input id="login-usuario" type="text" placeholder="Usuário"
+        <input id="login-usuario" type="text" placeholder="Usuario"
             style="display:block;width:100%;padding:10px;margin-bottom:10px;
                    border-radius:8px;border:none;box-sizing:border-box;">
         <input id="login-senha" type="password" placeholder="Senha"
@@ -115,15 +115,15 @@ function criarModalLogin() {
         const senha = document.getElementById("login-senha").value;
 
         if (usuario === "" || senha === "") {
-            alert("Preencha usuário e senha!");
+            alert("Preencha usuario e senha!");
             return;
         }
 
         if (usuario === USUARIO_VALIDO && senha === SENHA_VALIDA) {
-            alert(`Bem-vindo, ${usuario.toUpperCase()}! Login feito com sucesso 🎉`);
+            alert(`Bem-vindo, ${usuario.toUpperCase()}! Login feito com sucesso.`);
             document.body.removeChild(overlay);
         } else {
-            alert("Usuário ou senha incorretos. Tente novamente!");
+            alert("Usuario ou senha incorretos. Tente novamente!");
         }
     });
 
@@ -163,22 +163,31 @@ window.addEventListener("scroll", () => {
 });
 
 
-setTimeout(() => {
-    const resposta = prompt(
-        `Olá! Bem-vindo ao ${nomeSite} v${versao}!\nO que achou do site? (ótimo / bom / ruim)`
-    );
+let promptExibido = false;
 
-    if (resposta === null) return;
+window.addEventListener("scroll", () => {
+    const scrollAtual = window.scrollY + window.innerHeight;
+    const alturaTotal = document.body.scrollHeight;
 
-    const respostaFormatada = resposta.trim().toLowerCase();
+    if (!promptExibido && scrollAtual >= alturaTotal - 50) {
+        promptExibido = true;
 
-    if (respostaFormatada === "ótimo" || respostaFormatada === "otimo") {
-        alert("Que incrível! Fico feliz que curtiu 😄");
-    } else if (respostaFormatada === "bom") {
-        alert("Obrigado! Vamos continuar melhorando 💪");
-    } else if (respostaFormatada === "ruim") {
-        alert("Poxa! Seu feedback é importante pra gente melhorar 💡");
-    } else {
-        alert(`Resposta "${resposta}" não reconhecida, mas valeu pela interação!`);
+        const resposta = prompt(
+            `Voce chegou ao final do ${nomeSite} v${versao}!\nO que achou do site? (otimo / bom / ruim)`
+        );
+
+        if (resposta === null) return;
+
+        const respostaFormatada = resposta.trim().toLowerCase();
+
+        if (respostaFormatada === "otimo") {
+            alert("Que incrivel! Fico feliz que curtiu.");
+        } else if (respostaFormatada === "bom") {
+            alert("Obrigado! Vamos continuar melhorando.");
+        } else if (respostaFormatada === "ruim") {
+            alert("Seu feedback e importante pra gente melhorar.");
+        } else {
+            alert(`Resposta "${resposta}" nao reconhecida, mas valeu pela interacao!`);
+        }
     }
-}, 4000);
+});

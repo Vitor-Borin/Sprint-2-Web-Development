@@ -90,6 +90,8 @@ header{
 }
 .hero-image img{
     width:350px;
+    border-radius:20px;
+    object-fit:contain;
 }
 /* sobre */
 .sobre{
@@ -248,6 +250,7 @@ footer{
     }
     .hero-image img{
         width:280px;
+        border-radius:20px;
     }
     .navbar{
         flex-direction:column;
