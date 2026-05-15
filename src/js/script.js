@@ -140,3 +140,24 @@ btnLogin.style.cssText = `
 `;
 btnLogin.addEventListener("click", criarModalLogin);
 document.querySelector(".navbar").appendChild(btnLogin);
+
+
+const secoes = document.querySelectorAll("section");
+const linksMenu = document.querySelectorAll(".menu a");
+
+window.addEventListener("scroll", () => {
+    let secaoAtual = "";
+
+    secoes.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 100) {
+            secaoAtual = sec.getAttribute("id");
+        }
+    });
+
+    linksMenu.forEach(link => {
+        link.classList.remove("ativo");
+        if (link.getAttribute("href") === `#${secaoAtual}`) {
+            link.classList.add("ativo");
+        }
+    });
+});
