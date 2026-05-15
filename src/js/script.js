@@ -131,3 +131,12 @@ function criarModalLogin() {
         document.body.removeChild(overlay);
     });
 }
+
+const btnLogin = document.createElement("button");
+btnLogin.textContent = "Login";
+btnLogin.style.cssText = `
+    padding: 8px 16px; background: #6c63ff; color: #fff;
+    border: none; border-radius: 8px; cursor: pointer; font-weight: bold;
+`;
+btnLogin.addEventListener("click", criarModalLogin);
+document.querySelector(".navbar").appendChild(btnLogin);
