@@ -19,3 +19,11 @@ function trocarImagem() {
 }
 
 setInterval(trocarImagem, 3000);
+
+
+const botaoHero = document.querySelector(".hero-text button");
+
+botaoHero.addEventListener("click", () => {
+    const msg = `Você está conhecendo o FLOW no site ${nomeSite} 🚀`;
+    alert(msg);
+});
