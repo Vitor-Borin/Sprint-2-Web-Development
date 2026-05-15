@@ -27,3 +27,16 @@ botaoHero.addEventListener("click", () => {
     const msg = `Você está conhecendo o FLOW no site ${nomeSite} 🚀`;
     alert(msg);
 });
+
+
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 60) {
+        navbar.style.background = "#0a0a1a";
+        navbar.style.boxShadow = "0 2px 10px rgba(0,0,0,0.5)";
+    } else {
+        navbar.style.background = "transparent";
+        navbar.style.boxShadow = "none";
+    }
+});
