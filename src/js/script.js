@@ -161,3 +161,24 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
+
+setTimeout(() => {
+    const resposta = prompt(
+        `Olá! Bem-vindo ao ${nomeSite} v${versao}!\nO que achou do site? (ótimo / bom / ruim)`
+    );
+
+    if (resposta === null) return;
+
+    const respostaFormatada = resposta.trim().toLowerCase();
+
+    if (respostaFormatada === "ótimo" || respostaFormatada === "otimo") {
+        alert("Que incrível! Fico feliz que curtiu 😄");
+    } else if (respostaFormatada === "bom") {
+        alert("Obrigado! Vamos continuar melhorando 💪");
+    } else if (respostaFormatada === "ruim") {
+        alert("Poxa! Seu feedback é importante pra gente melhorar 💡");
+    } else {
+        alert(`Resposta "${resposta}" não reconhecida, mas valeu pela interação!`);
+    }
+}, 4000);
