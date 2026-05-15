@@ -40,3 +40,29 @@ window.addEventListener("scroll", () => {
         navbar.style.boxShadow = "none";
     }
 });
+
+
+const formContato = document.querySelector("form");
+
+formContato.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nome = document.querySelector("input[type='text']").value.trim();
+    const email = document.querySelector("input[type='email']").value.trim();
+    const mensagem = document.querySelector("textarea").value.trim();
+
+    if (nome === "" || email === "") {
+        alert("Por favor, preencha nome e email!");
+        return;
+    }
+
+    if (!email.includes("@") || !email.includes(".")) {
+        alert("Email inválido! Verifique o formato.");
+        return;
+    }
+
+    const nomeFormatado = nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase();
+
+    alert(`Obrigado, ${nomeFormatado}! Sua mensagem foi enviada com sucesso 🚀`);
+    formContato.reset();
+});
